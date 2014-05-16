@@ -4,7 +4,7 @@ import uai.model.Customer;
 import uai.model.Gender;
 import uai.repository.CustomerJdbcTemplate;
 
-public class Insert extends AbstractCrud {
+public class Create extends AbstractCrud {
     public static void main(String[] args) {
         CustomerJdbcTemplate customerJdbcTemplate = getCustomerJdbcTemplate();
 

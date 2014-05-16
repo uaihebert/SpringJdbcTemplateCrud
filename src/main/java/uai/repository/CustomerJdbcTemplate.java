@@ -36,7 +36,7 @@ public class CustomerJdbcTemplate {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public Customer create(final Customer customer) {
+    public void create(final Customer customer) {
         // class that will hold the generated ID
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(
@@ -56,7 +56,6 @@ public class CustomerJdbcTemplate {
                 keyHolder);
 
         customer.setId(keyHolder.getKey().intValue());
-        return customer;
     }
 
     public void delete(Integer customerId) {
