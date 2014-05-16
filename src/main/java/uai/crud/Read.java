@@ -9,7 +9,7 @@ public class Read extends AbstractCrud{
     public static void main(String[] args) {
         CustomerJdbcTemplate customerJdbcTemplate = getCustomerJdbcTemplate();
 
-        Customer customer = customerJdbcTemplate.findById(1);
+        Customer customer = customerJdbcTemplate.findById(2);
         System.out.println("found: " + customer);
 
         List<Customer> customers = customerJdbcTemplate.listAll();

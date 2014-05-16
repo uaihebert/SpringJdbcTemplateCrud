@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CustomerJdbcTemplate implements CustomerRepository {
+public class CustomerJdbcTemplate {
     private final static String SQL_INSERT = "INSERT INTO `CRUD`.`customer` (`name`,`birth`,`gender`,`social_security_number`) " +
                                              " VALUES(?,?,?,?)";
     private final static String SQL_UPDATE = "UPDATE `CRUD`.`customer` " +
@@ -32,12 +32,10 @@ public class CustomerJdbcTemplate implements CustomerRepository {
 
     private JdbcTemplate jdbcTemplate;
 
-    @Override
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    @Override
     public Customer create(final Customer customer) {
         // class that will hold the generated ID
         final KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -61,12 +59,10 @@ public class CustomerJdbcTemplate implements CustomerRepository {
         return customer;
     }
 
-    @Override
     public void delete(Integer customerId) {
         jdbcTemplate.update(SQL_DELETE, customerId);
     }
 
-    @Override
     public void update(Customer customer) {
         Date birthAsSqlTime = new Date(customer.getBirth().getTime());
 
@@ -80,14 +76,12 @@ public class CustomerJdbcTemplate implements CustomerRepository {
         );
     }
 
-    @Override
     public Customer findById(Integer customerId) {
         Customer customer = jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new Object[]{customerId}, new CustomerMapper());
 
         return customer;
     }
 
-    @Override
     public List<Customer> listAll() {
         List<Customer> customerList = jdbcTemplate.query(SQL_FIND_ALL, new CustomerMapper());
 
