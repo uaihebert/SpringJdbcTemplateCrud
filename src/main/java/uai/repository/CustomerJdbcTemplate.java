@@ -29,7 +29,6 @@ public class CustomerJdbcTemplate {
     private final static String SQL_FIND_BY_ID = "select * from `CRUD`.`customer` WHERE id = ?";
     private final static String SQL_FIND_ALL = "select * from `CRUD`.`customer`";
 
-
     private JdbcTemplate jdbcTemplate;
 
     public void setDataSource(DataSource dataSource) {
