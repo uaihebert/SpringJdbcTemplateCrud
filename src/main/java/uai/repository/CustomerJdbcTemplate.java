@@ -75,13 +75,16 @@ public class CustomerJdbcTemplate {
     }
 
     public Customer findById(Integer customerId) {
-        Customer customer = jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new Object[]{customerId}, new CustomerMapper());
+        Customer customer = jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new
+                                                        Object[]{customerId},
+                                                        new CustomerMapper());
 
         return customer;
     }
 
     public List<Customer> listAll() {
-        List<Customer> customerList = jdbcTemplate.query(SQL_FIND_ALL, new CustomerMapper());
+        List<Customer> customerList = jdbcTemplate.query(SQL_FIND_ALL,
+                                                         new CustomerMapper());
 
         return customerList;
     }
