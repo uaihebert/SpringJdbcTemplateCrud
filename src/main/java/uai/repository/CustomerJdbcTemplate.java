@@ -45,7 +45,7 @@ public class CustomerJdbcTemplate {
 
                         PreparedStatement ps =
                                 connection.prepareStatement(SQL_INSERT, new String[] {"name","birth","gender","social_security_number"});
-                        ps.setString(1, customer.getName()); // testar se não  rola de passar os campos diretos no lugar do String[]
+                        ps.setString(1, customer.getName());
                         ps.setDate(2, birthAsSqlTime);
                         ps.setString(3, customer.getGender().toString());
                         ps.setString(4, customer.getSocialSecurityNumber());
