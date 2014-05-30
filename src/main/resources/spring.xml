@@ -5,17 +5,15 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
 
     <!-- Initialization for data source -->
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/CRUD"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
 
-    <!-- Definition for studentJDBCTemplate bean -->
-    <bean id="customerJdbcTemplate"
-          class="uai.repository.CustomerJdbcTemplate">
+    <!-- Definition for customerJDBCTemplate bean -->
+    <bean id="customerJdbcTemplate" class="uai.repository.CustomerJdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
